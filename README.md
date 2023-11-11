@@ -11,20 +11,35 @@ Steps involved:
      ->sudo apt update
      ->sudo apt upgrade
      (Python comes preinstalled with Raspbian)
-3) Download Libraries for Python Scripts: (2 methods: A, B, *C)
+2) Download Libraries for Python Scripts: (3 methods: A, B, *C)
    2.A:If this doesn't work because Error: "externally managed environment" go to 2.B
      ->sudo apt-get install python3-pip
-     ->sudo apt install python3-dotenv                 OR (python3 -m pip install python-dotenv) 
-     ->sudo apt install                       OR pip3 install openai dotenv SpeechRecognition pyttsx3 gtts PyAudio
-     ->                                                OR sudo apt install python3-pyaudio flac python3-espeak espeak python3-dotenv
-     ->                                                OR pip uninstall dotenv
-     ->                                                ORpip install python-dotenv
+     ->python3 -m pip install python-dotenv
+     ->pip3 install openai dotenv SpeechRecognition pyttsx3 gtts PyAudio
+     ->sudo apt install python3-pyaudio flac python3-espeak espeak python3-dotenv
+     ->pip uninstall dotenv
+     ->pip install python-dotenv
    
-    2.B)If 1.1 did not work, we will download libraries through virtual environment
-***The error "externally managed environment" when trying to install a Python package on a Raspberry Pi (or similar Linux systems)   indicates that the system's package manager, rather than pip, is managing the Python environment. This is a common scenario in many Linux distributions where Python packages are installed and managed system-wide by tools like apt. 
+    2.B)If 1.1 did not work, we will download libraries through virtual environment. You might have seen the error code:
+    ***The error "externally managed environment" when trying to install a Python package on a Raspberry Pi (or similar Linux systems)   indicates that the system's package manager,          rather than pip, is managing the Python environment. This is a common scenario in many Linux distributions where Python packages are installed and managed system-wide by tools like       apt.
+      We will open the Python virtual environment:
+      ->sudo apt-get install python3-venv
+      ->sudo apt-get install python3-pip
+      ->sudo apt install python3-dotenv
+      Open the virtual environment
+      ->python3 -m venv myenv
+      ->source myenv/bin/activate
+      ->sudo apt-get update
+      ->pip3 install numpy
+      ->python3 -m pip install python-dotenv
+      ->sudo apt-get install libportaudio2 libportaudiocpp0 portaudio19-dev python3-pyaudio
+      ->pip install openai python-dotenv SpeechRecognition pyttsx3 gtts PyAudio
+      ->sudo apt install python3-pyaudio flac python3-espeak espeak python3-dotenv
+      
    2.*C This method is not the recommended way as it can cause issues. We will use --break-system-packages to download Python libraries
    
-We will use: sudo apt to install:
-             sudo apt install python3-dotenv 
-             sudo apt install <install instructions>
-**
+
+3)Getting your API keys
+
+
+4)Writing the python script
