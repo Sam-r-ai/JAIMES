@@ -40,6 +40,13 @@ Steps involved:
    
 
 3)Getting your API keys
-
+   ->Go to openai API (https://platform.openai.com/apps)
+   ->Login and on the lefthand side of your screen, go to API keys
+   ->Click 'Create new secret key'
+   ->Copy the key and paste it somewhere (for use later)
 
 4)Writing the python script
+   ->Copy and paste the python script
+   ->Put your api key into openai.api_key= 'HERE'
+   ->Change "NAME" to your name
+   ->Run
