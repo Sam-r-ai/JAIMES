@@ -1,7 +1,30 @@
-# H1 JAIMES
-Continuous voice command chatGPT on a Raspberry Pi (better version of Alexa)
+# JAIMES
 
-Steps involved:
+***Voice-Activated Personal Assistant using OpenAI and Raspberry Pi***
+
+#### **Improvements to do:** 
+
+- [ ] THREADING: to improve responsiveness because pyttsx3 blocks program from running until it finishes. There is about a 2 second delay after wake word is acknowledged before you can ask a question to send to GPTapi
+
+#### Hardware requirements:
+
+- Raspberry pi 
+- Microphone for raspberry pi
+- Speaker for raspberry pi
+- Openai API key ("https://platform.openai.com/apps")
+- Python 3.10.1
+
+***This can run locally on a machine*** with python 3.10.1. ***Anything above python 3.10.1 will need to follow the advanced instructions*** where we edit \__init__ file for speechrecognition
+
+### Instructions:
+
+If running on Raspberry Pi, follow instruction **A**
+
+If running locally (windows, mac, ) follow instruction **B**
+
+If running locally with Python 12+ follow instructions **C**
+
+### (A) Running on Raspberry Pi
 1: Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -> 4: Write the script -> Run.
 
 1) Setting up Raspberry Pi 4
@@ -50,3 +73,8 @@ Steps involved:
    ->Put your api key into openai.api_key= 'HERE'
    ->Change "NAME" to your name
    ->Run
+
+### (B) Running on system with Python 3.10.1 
+
+
+### (C) Running on system with Python 3.12+
