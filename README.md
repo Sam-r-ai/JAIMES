@@ -18,13 +18,48 @@
 
 ### Instructions:
 
-If running on Raspberry Pi, follow instruction **A**
+If running locally with system using Python 12+ follow instructions **A**
 
-If running locally (windows, mac, ) follow instruction **B**
+If running locally (windows, mac, linux computer) follow instruction **B**
 
-If running locally with Python 12+ follow instructions **C**
+If running on Raspberry Pi, follow instruction **C**
 
-### (A) Running on Raspberry Pi
+
+
+### (A) Running on system with Python 3.12+
+
+### (B) Running on system with Python 3.10.1 
+
+I suggest you create a virtual environment of Python 3.10.1
+
+
+
+
+The *Speechrecognition* Library is made to support versions of Python 3.10.1. 
+
+Python 3.12 + has changed it's method of installing packages, so we have to edit the \__init__ file of Speechrecognition for this to work. It is pretty simple
+
+After installing Speechrecognition, find where it is located, and edit the \__init__ file using vim/nano/vscode etc.
+
+Find its get_pyaudio() function, and replace it with the following code:
+
+    @staticmethod
+    def get_pyaudio():
+        """
+        Imports the pyaudio module and checks its version. Throws exceptions if pyaudio can't be found or a wrong version is installed
+        """
+        try:
+            import pyaudio
+        except ImportError:
+            raise AttributeError("Could not find PyAudio; check installation")
+        from packaging.version import parse as parse_version
+        if parse_version(pyaudio.__version__) < parse_version("0.2.11"):
+            raise AttributeError("PyAudio 0.2.11 or later is required (found version {})".format(pyaudio.__version__))
+        return pyaudio
+
+Now it will work. 
+
+### (C) Running on Raspberry Pi
 Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -> 4: Write the script -> Run.
 
 1) Setting up Raspberry Pi 4
@@ -91,7 +126,4 @@ Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -
    ->Change "NAME" to your name
    ->Run
 
-### (B) Running on system with Python 3.10.1 
 
-
-### (C) Running on system with Python 3.12+
