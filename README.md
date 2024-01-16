@@ -4,7 +4,7 @@
 
 #### **Improvements to do:** 
 
-- [ ] THREADING: to improve responsiveness because pyttsx3 blocks program from running until it finishes. There is about a 2 second delay after wake word is acknowledged before you can ask a question to send to GPTapi
+- [ ] THREADING: to improve responsiveness because pyttsx3 blocks program from running until it finishes. There is about a 2 second delay after wake word is acknowledged before you can ask a question to send to openai api
 
 #### Hardware requirements:
 
@@ -25,25 +25,42 @@ If running locally (windows, mac, ) follow instruction **B**
 If running locally with Python 12+ follow instructions **C**
 
 ### (A) Running on Raspberry Pi
-1: Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -> 4: Write the script -> Run.
+Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -> 4: Write the script -> Run.
 
 1) Setting up Raspberry Pi 4
-   -Image the newest version of PiOS onto your Raspberry Pi, then power up and go through booting, you will then need to download some 
+   
+   -Image the newest version of PiOS onto your Raspberry Pi, then power up and go through booting, you will then need to download some
+   
     configurations. We will need to install libraries to interact with chatGPT
+   
    -Run update commands in terminal:
+   
      ->sudo apt update
+   
      ->sudo apt upgrade
-     (Python comes preinstalled with Raspbian)
+   
+     (Python comes preinstalled with RaspbianOS)
+   
 2) Download Libraries for Python Scripts: (3 methods: A, B, *C)
+   
    2.A:If this doesn't work because Error: "externally managed environment" go to 2.B
+   
      ->sudo apt-get install python3-pip
+   
      ->python3 -m pip install python-dotenv
+   
      ->pip3 install openai dotenv SpeechRecognition pyttsx3 gtts PyAudio
+   
      ->sudo apt install python3-pyaudio flac python3-espeak espeak python3-dotenv
+   
      ->pip uninstall dotenv
+   
      ->pip install python-dotenv
    
-    2.B)If 1.1 did not work, we will download libraries through virtual environment. You might have seen the error code:
+    2.B)If 1.1 did not work, we will download libraries through virtual environment.
+   
+   You might have seen the error code:
+   
     ***The error "externally managed environment" when trying to install a Python package on a Raspberry Pi (or similar Linux systems)   indicates that the system's package manager,          rather than pip, is managing the Python environment. This is a common scenario in many Linux distributions where Python packages are installed and managed system-wide by tools like       apt.
       We will open the Python virtual environment:
       ->sudo apt-get install python3-venv
