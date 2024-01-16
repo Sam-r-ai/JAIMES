@@ -28,16 +28,9 @@ If running on Raspberry Pi, follow instruction **C**
 
 ### (A) Running on system with Python 3.12+
 
-### (B) Running on system with Python 3.10.1 
+Python 3.12 + has changed it's method of installing packages; removing distutils and using setuptools instead, so we have to edit the \__init__ file of Speechrecognition for this to work. It is pretty simple.
 
-I suggest you create a virtual environment of Python 3.10.1
-
-
-
-
-The *Speechrecognition* Library is made to support versions of Python 3.10.1. 
-
-Python 3.12 + has changed it's method of installing packages, so we have to edit the \__init__ file of Speechrecognition for this to work. It is pretty simple
+Look into the Python file, install the requirements given in the comments.
 
 After installing Speechrecognition, find where it is located, and edit the \__init__ file using vim/nano/vscode etc.
 
@@ -57,7 +50,23 @@ Find its get_pyaudio() function, and replace it with the following code:
             raise AttributeError("PyAudio 0.2.11 or later is required (found version {})".format(pyaudio.__version__))
         return pyaudio
 
-Now it will work. 
+Now it will work. You can run the python code by copy and pasting, or cloning it from github.
+
+### (B) Running on system with Python 3.10.1 
+
+The *Speechrecognition* Library is made to support versions of Python 3.10.1. 
+
+I suggest you create a virtual environment of Python 3.10.1
+
+Download Python 3.10.1: (https://www.python.org/downloads/release/python-3101/)
+
+#### WINDOWS:
+
+
+#### MAC
+
+#### LINUX 
+
 
 ### (C) Running on Raspberry Pi
 Setup Raspberry Pi 4 -> 2: Download Python Libraries -> 3: Get chatGPT API Key -> 4: Write the script -> Run.
