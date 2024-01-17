@@ -22,7 +22,7 @@ If running locally with system using Python 12+ follow instructions **A**
 
 If running locally (windows, mac, linux computer) follow instruction **B**
 
-If running on Raspberry Pi, follow instruction **C**
+If running on **Raspberry Pi**, follow instruction **C**
 
 
 
@@ -32,7 +32,7 @@ Python 3.12 + has changed it's method of installing packages; removing distutils
 
 Look into the Python file, install the requirements given in the comments.
 
-After installing Speechrecognition, find where it is located, and edit the \__init__ file using vim/nano/vscode etc.
+After installing Speechrecognition, find where *Speechrecognition* is located, and edit the \__init__ file using vim/nano/vscode etc.
 
 Find its get_pyaudio() function, and replace it with the following code:
 
@@ -60,12 +60,7 @@ I suggest you create a virtual environment of Python 3.10.1
 
 Download Python 3.10.1: (https://www.python.org/downloads/release/python-3101/)
 
-#### WINDOWS:
-
-
-#### MAC
-
-#### LINUX 
+Open a virtual environment using Python 3.10.1, and use the Python code and run the program. Follow all library installs from comments
 
 
 ### (C) Running on Raspberry Pi
